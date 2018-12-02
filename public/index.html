@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<title>U2F Register</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <script src="/socket.io-client/dist/socket.io.js" crossorigin="anonymous"></script>
+    <script>
+        var socket = io('http://:8080');
+        socket.on('update', function (data) {
+            document.getElementById("shower").innerHTML = document.getElementById("shower").innerHTML + "<li class='list-group-item'>" + "<strong>[" + data.tag + "]</strong> : " + data.text + "</li>";
+            console.log("Update from server : " + data);
+            window.scrollTo(0,document.body.scrollHeight);
+        });
+
+    </script>
+
+    <p>
+        <ul class="list-group col-sm-8">
+            <span id='shower'></span>
+        </ul>
+    </p>
+</body>
+</html> 
