@@ -3,9 +3,8 @@ var bodyParser = require("body-parser");
 
 var http = require('http');
 var express = require('express');
+var cors = require('cors');
 var app = express();
-
-
 
 var server = http.createServer(app);
 // Pass a http.Server instance to the listen method
@@ -33,6 +32,8 @@ app.use(function(req, res, next) {
 app.get('/', function(req, res,next) {
     res.sendFile(__dirname + '/index.html');
 });
+
+app.options('/sendInformation', cors())
 
 app.post('/sendInformation', function(req,res){
     if(req.body.token === "LEPX510CESTGENIAL") // Poor protection but ok for the demo
@@ -66,7 +67,7 @@ app.post('/register', function(request, response) {
     });*/
 
 
-}); 
+});
 
 // Sockets management
 io.on('connection', function (client) {
