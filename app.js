@@ -13,7 +13,7 @@ var io = require('socket.io').listen(server);
 io.origins('*:*');
 
 // The server should start listening
-function startWebServer(port = process.env.PORT){
+function startWebServer(port){
   console.log("Server started on port " + port);
   server.listen(port);
 };
@@ -77,4 +77,4 @@ function sendInformationToAll(tag,text)
 }
 
 
-startWebServer(8080);
+startWebServer(process.env.PORT);
