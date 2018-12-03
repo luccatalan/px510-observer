@@ -36,6 +36,7 @@ app.get('/', function(req, res,next) {
 app.options('/sendInformation', function(req,res) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.send();
 });
 
 app.post('/sendInformation', function(req,res){
@@ -87,4 +88,5 @@ function sendInformationToAll(tag,text)
 }
 
 
-startWebServer(process.env.PORT);
+//startWebServer(process.env.PORT);
+startWebServer(8080);
