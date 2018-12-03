@@ -3,7 +3,6 @@ var bodyParser = require("body-parser");
 
 var http = require('http');
 var express = require('express');
-var cors = require('cors');
 var app = express();
 
 var server = http.createServer(app);
@@ -21,12 +20,6 @@ app.use(express.static('public'));
 app.use(express.static('node_modules'))
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
-
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
 
 // Routes management
 app.get('/', function(req, res,next) {
