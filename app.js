@@ -33,7 +33,10 @@ app.get('/', function(req, res,next) {
     res.sendFile(__dirname + '/index.html');
 });
 
-app.options('/sendInformation', cors())
+app.options('/sendInformation', function(req,res) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+});
 
 app.post('/sendInformation', function(req,res){
     if(req.body.token === "LEPX510CESTGENIAL") // Poor protection but ok for the demo
