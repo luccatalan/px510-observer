@@ -88,5 +88,4 @@ function sendInformationToAll(tag,text)
 }
 
 
-//startWebServer(process.env.PORT);
-startWebServer(8080);
+startWebServer(process.env.PORT);
