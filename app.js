@@ -69,7 +69,7 @@ app.post('/register', function(request, response) {
 // Sockets management
 io.on('connection', function (client) {
     console.log("Client connected" + client.handshake.address);
-    client.emit('update', {tag: "Server", text: "Welcome " + client.request.connection.remoteAddress})
+    client.emit('update', {tag: "Observer", text: "Welcome " + client.request.connection.remoteAddress})
 });
 
 // Pour émettre des infos à tous les spectateurs, on utilise la fonction suivante
